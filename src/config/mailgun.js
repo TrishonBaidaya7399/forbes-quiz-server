@@ -1,4 +1,5 @@
-const mailgun = require("mailgun-js");
+const formData = require("form-data");
+const Mailgun = require("mailgun.js");
 
 let mg = null;
 
@@ -10,10 +11,11 @@ if (
   process.env.MAILGUN_DOMAIN !== "your_mailgun_domain_here"
 ) {
   try {
-    mg = mailgun({
-      apiKey: process.env.MAILGUN_API_KEY,
-      domain: process.env.MAILGUN_DOMAIN,
-      host: "api.mailgun.net", // Ensure we're using the correct host
+    const mailgun = new Mailgun(formData);
+    mg = mailgun.client({
+      username: "api",
+      key: process.env.MAILGUN_API_KEY,
+      url: "https://api.eu.mailgun.net", // EU endpoint
     });
 
     console.log(

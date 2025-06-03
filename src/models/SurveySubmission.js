@@ -12,7 +12,6 @@ const surveySubmissionSchema = new mongoose.Schema(
     email: {
       type: String,
       required: [true, "Email is required"],
-      unique: true, // This creates an index automatically
       lowercase: true,
       trim: true,
       match: [
@@ -58,11 +57,5 @@ const surveySubmissionSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-// Only add indexes that are not already created by schema properties
-// Remove the email index since unique: true already creates it
-surveySubmissionSchema.index({ submittedAt: -1 });
-surveySubmissionSchema.index({ company: 1 });
-surveySubmissionSchema.index({ averageScore: 1 });
 
 module.exports = mongoose.model("SurveySubmission", surveySubmissionSchema);

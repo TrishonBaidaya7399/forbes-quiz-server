@@ -23,24 +23,24 @@ exports.submitSurvey = async (req, res) => {
     }
 
     // Check if user has already submitted
-    const existingSubmission = await SurveySubmission.findOne({
-      email: email.toLowerCase(),
-    });
+    // const existingSubmission = await SurveySubmission.findOne({
+    //   email: email.toLowerCase(),
+    // });
 
-    if (existingSubmission) {
-      return errorResponse(
-        res,
-        "Ezzel az e-mail címmel már kitöltötték a felmérést",
-        409
-      );
-    }
+    // if (existingSubmission) {
+    //   return errorResponse(
+    //     res,
+    //     "Ezzel az e-mail címmel már kitöltötték a felmérést",
+    //     409
+    //   );
+    // }
 
     // Create new submission
     const submission = new SurveySubmission({
-      name: name.trim(),
-      email: email.toLowerCase().trim(),
-      company: company.trim(),
-      position: position.trim(),
+      name: name?.trim(),
+      email: email.toLowerCase()?.trim(),
+      company: company?.trim(),
+      position: position?.trim(),
       responses: responses,
       averageScore: Number.parseFloat(averageScore),
       submittedAt: new Date(),
