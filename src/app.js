@@ -9,8 +9,20 @@ const surveyRoutes = require("./routes/survey");
 const emailRoutes = require("./routes/email");
 const adminRoutes = require("./routes/admin");
 const errorHandler = require("./middleware/errorHandler");
+const { connectToDatabase } = require("./config/database");
+const log = require("./utils/logger");
 
 const app = express();
+// Connect to database on startup
+connectToDatabase()
+  .then(() => {
+    log.success("Database connection established");
+  })
+  .catch((err) => {
+    log.error("Failed to connect to database:", err);
+    // Continue starting the server even if DB connection fails initially
+  });
+
 
 // Security middleware
 app.use(helmet());
@@ -43,6 +55,10 @@ app.get("/health", (req, res) => {
     environment: process.env.NODE_ENV,
   });
 });
+
+app.get('/', (req,res) =>{
+  res.send({message:'Done'})
+})
 
 // API routes - make sure these are router functions
 app.use("/api", surveyRoutes);
