@@ -42,7 +42,22 @@ exports.sendResultEmail = async (req, res) => {
       });
     }
 
-    const htmlTemplate = generateEmailTemplate(userData, results, theme);
+    // Add this before the generateEmailTemplate call (around line 40-45):
+    let emailResults;
+    if (Array.isArray(results)) {
+      // If results is already an array (old format)
+      emailResults = results;
+    } else if (results && results.categoryResults) {
+      // If results is an object with categoryResults (new format)
+      emailResults = results.categoryResults;
+    } else {
+      // Fallback or error handling
+      console.error("❌ Invalid results format:", results);
+      return errorResponse(res, "Invalid results format", 400);
+    }
+
+    const htmlTemplate = generateEmailTemplate(userData, emailResults, theme);
+    console.log(results);
 
     const emailData = {
       from: `Forbes Business Club <noreply@${process.env.MAILGUN_DOMAIN}>`,
@@ -152,7 +167,7 @@ exports.sendResultEmail = async (req, res) => {
     }
   } catch (error) {
     console.error("❌ Send email controller error:", error);
-
+    console.log({ res, error });
     // Still return success to not break the user flow
     return successResponse(res, {
       message: "Survey submitted successfully (email service unavailable)",

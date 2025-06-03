@@ -20,8 +20,8 @@ function generateEmailTemplate(userData, results) {
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
-   <meta name="color-scheme" content="light dark">
-    <meta name="supported-color-schemes" content="light dark">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forbes Business Club - Adaptív Vezetői Felmérés</title>
   <style>
@@ -171,7 +171,54 @@ function generateEmailTemplate(userData, results) {
       </div>
     </div>
 
-    <!-- You can continue adding more description blocks for other dimensions if needed -->
+    <div class="description-block">
+      <div class="desc-title">Elemző stratéga</div>
+      <div class="desc-text">
+        Az út kijelölése - Ez a vezetői minőség azt vizsgálja, mennyire képes Ön a célok és a világos jövőkép alapján tudatos tervezésre és stratégiai döntéshozatalra. Méri, hogy mennyire alaposan elemzi a jelenlegi helyzetet és mennyire bátran hoz döntéseket arra vonatkozóan, hogy mire koncentráljon és mivel ne foglalkozzon a szervezet. Értékeli, hogy mennyire sikerül minden szervezeti erőforrást és tevékenységet a választott stratégia szolgálatába állítani. A stratégia gondolkodás az a képesség, amely a vízióból megvalósítható cselekvési tervet készít.
+      </div>
+    </div>
+
+    <div class="description-block">
+      <div class="desc-title">Új technológiákat sikerrel adaptáló</div>
+      <div class="desc-text">
+        A versenyképesség növelő technológiák integrálása - Ez a vezetői minőség azt méri, mennyire stratégiai alapon használja az eszközöket, rendszereket és technológiákat az emberi képességek kiegészítésére, támogatására. Értékeli, hogy a technológiával kapcsolatos befektetési döntések stratégiai megfontolás, vagy inkább a technológiai újdonságok vonzereje vezérli. Megmutatja, mennyire képes integrált technológiai ökoszisztémát építeni elszigetelt megoldások helyett.
+      </div>
+    </div>
+
+    <div class="description-block">
+      <div class="desc-title">Operatív kiválóság bajnoka</div>
+      <div class="desc-text">
+        Az kiválóság folyamatokba szervezése - Ez a vezetői minőség azt vizsgálja, mennyire képes Ön a stratégiai és üzleti nagy számú, ismételt tevékenységre, végrehajtásra fordítani. Méri, hogy mennyire hatékonyan tervezi meg a munkafolyamatokat, szerepköröket és felelősségeket a maximális eredményesség érdekében. Értékeli, hogy rendelkezik-e olyan rendszerekkel, amelyek biztosítják az előállíthatóságot és a folyamatos fejlődést.
+      </div>
+    </div>
+
+    <div class="description-block">
+      <div class="desc-title">Kapcsolatvarázsló</div>
+      <div class="desc-text">
+        Személyes network menedzsment - Ez a vezetői minőség azt méri, mennyire értékes és bizalmi kapcsolatokat működtet, amelyek minden vezetői munka alapját képezik. Értékeli bizalomépítő képességét, kommunikációs flexibilitását és konfliktuskezelési készségét. Megmutatja, hogy mennyire ismeri fel, hogy a személyes eredmények természetesen befolyásolják személyes viselkedését. Méri, hogy mennyire képes másokat befolyásolni és inspirálni a közös munkához.
+      </div>
+    </div>
+
+    <div class="description-block">
+      <div class="desc-title">Kultúraépítő</div>
+      <div class="desc-text">
+        A kultúra a láthatatlan architektúra szervezése - Ez a vezetői minőség azt vizsgálja, mennyire tudatosan alakos közösségi értékeket és normákat kialakítani a szervezetben, amelyek természetesen befolyásolják a döntéshozatalt, a viselkedést és a végrehajtást. Értékeli, hogy rendelkezik-e olyan közös rituálékkal, eseményekkel, amelyek megerősítik a szervezeti identitást. Megmutatja, hogy mennyire képes az egyéni teljesítmény kollektív értelmezése helyett.
+      </div>
+    </div>
+
+    <div class="description-block">
+      <div class="desc-title">Önismeret</div>
+      <div class="desc-text">
+        A belső kompasz kalibrálása - Ez a vezetői minőség azt méri, mennyire ismeri Ön a saját erősségeit, gyengeségeit, értékeit és motivációit. Értékeli, hogy mennyire tudatosan kezeli a saját érzelmi reakcióit és mennyire képes objektíven értékelni a saját teljesítményét. Megmutatja, hogy mennyire nyitott a visszajelzésekre és mennyire hajlandó folyamatosan fejlődni. Az önismeret minden más vezetői képesség alapja, mivel csak az tudja másokat vezetni, aki önmagát is képes irányítani.
+      </div>
+    </div>
+
+    <div class="description-block">
+      <div class="desc-title">Változásvezető</div>
+      <div class="desc-text">
+        A transzformáció orchestrálása - Ez a vezetői minőség azt vizsgálja, mennyire képes Ön a szervezeti változásokat sikeresen megtervezni, kommunikálni és végrehajtani. Méri, hogy mennyire érti a változás pszichológiáját és mennyire tudja kezelni az ellenállást. Értékeli, hogy mennyire képes a bizonytalanság időszakában is stabilitást és irányt adni a csapatának. A változásvezetés kritikus képesség a mai dinamikus üzleti környezetben, ahol az alkalmazkodóképesség versenyképességi tényező.
+      </div>
+    </div>
 
     <div class="footer">
       by Viktor Lenartson, Copyright ZEL Group
