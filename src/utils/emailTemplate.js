@@ -26,7 +26,7 @@ function generateEmailTemplate(userData, results) {
   <title>Forbes Business Club - Adaptív Vezetői Felmérés</title>
   <style>
     body {
-      font-family: "Didot", "Playfair Display", "Georgia", serif !important;
+      font-family: "Didot", "Playfair Display", "Georgia", serif, italic !important;
       background-color: ${bgColor};
       color: ${textColor};
       margin: 0;
@@ -79,7 +79,7 @@ function generateEmailTemplate(userData, results) {
     }
     .bar-chart table {
       width: 100%;
-      height: 300px;
+      height: 420px;
       table-layout: fixed;
     }
     .bar-container {
@@ -91,6 +91,8 @@ function generateEmailTemplate(userData, results) {
       border-bottom: 2px solid ${accentColor};
       padding-top: 20px;
       padding-bottom: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
     .bar {
       width: 100%;
@@ -193,12 +195,12 @@ function generateEmailTemplate(userData, results) {
               (r) => `
             <td class="bar-container" style="vertical-align: bottom; text-align: center; padding: 0 5px; border-top: 2px solid ${accentColor}; border-bottom: 2px solid ${accentColor};">
               <div class="percentage" style="color: white; font-weight: bold; margin-bottom: 10px;">${r.value.toFixed(
-                1
+                0
               )}%</div>
               <div class="bar" style="height: ${Math.max(
                 30,
                 Math.round(r.value * 3)
-              )}px; background-color: #CC925E; border-radius: 5px; margin: 0 auto 10px auto;"></div>
+              )}px; background-color: #CC925E; border-radius: 2px; margin: 0 auto 10px auto;"></div>
               <div class="label" style="color: ${textColor}; font-size: 10px; line-height: 1.2; margin-top: 10px; transform: rotate(-70deg); -webkit-transform: rotate(-70deg); -moz-transform: rotate(-70deg); -ms-transform: rotate(-70deg); height: 40px; transform-origin: center center;">${
                 categoryLabels[r.category] || r.category
               }</div>
