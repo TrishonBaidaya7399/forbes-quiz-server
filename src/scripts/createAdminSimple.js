@@ -80,7 +80,7 @@ async function createSimpleAdmin() {
     const demoAdmin = new Admin({
       email: "shukantobaidya2018@gmail.com",
       password: "T.b.s.@7399", // Plain text password
-      name: "Demo Admin",
+      name: "Forbes",
       role: "admin",
       isActive: true,
     });

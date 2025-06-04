@@ -7,7 +7,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "lint": "next lint",
-    "create-admin": "node ./src/scripts/createDemoAdmin.js",
+    "create-admin": "node ./src/scripts/createAdminSimple.js",
     "create-custom-admin": "node ./src/scripts/createAdmin.js",
     "list-admins": "node ./src/scripts/listAdmins.js"
   },
