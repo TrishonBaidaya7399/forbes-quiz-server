@@ -34,7 +34,7 @@ function generateEmailTemplate(userData, results) {
       padding: 0;
     }
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       background-color: ${containerBg};
       padding: 40px;
@@ -81,7 +81,6 @@ function generateEmailTemplate(userData, results) {
     }
     .bar-chart {
       width: 100%;
-      margin-top: 60px;
       padding: 20px 0;
     }
     .bar-chart table {
@@ -117,7 +116,6 @@ function generateEmailTemplate(userData, results) {
       text-align: center;
       line-height: 1.2;
       color: ${textColor} !important;
-      word-wrap: break-word;
       margin-top: 10px;
       display: block;
       transform: rotate(-70deg);
