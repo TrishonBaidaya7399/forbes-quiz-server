@@ -94,7 +94,6 @@ function generateEmailTemplate(userData, results) {
       text-align: center;
       vertical-align: bottom;
       padding: 0 30px;
-      margin-top: 20px;
       margin-bottom: 20px;
     }
     .bar {
@@ -188,7 +187,7 @@ function generateEmailTemplate(userData, results) {
       Köszönjük, hogy időt szántál az adaptív vezetői önértékelés kitöltésére.<br>
       Az alábbi eredményt kaptad, amely bemutatja, hogyan teljesítesz a különböző vezetői dimenziókban:
     </div>
-<div class="divider-gray"></div>
+<div class="divider-gray" style="margin-top: 50px"></div>
     <div class="bar-chart">
       <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; height: 300px;">
         <tr style="vertical-align: bottom;">
@@ -203,7 +202,7 @@ function generateEmailTemplate(userData, results) {
                 30,
                 Math.round(r.value * 3)
               )}px; background-color: #CC925E; border-radius: 2px; margin: 0 auto 10px auto;"></div>
-              <div class="label" style="color: ${textColor}; font-size: 10px; line-height: 1.2; margin-top: 10px; transform: rotate(-70deg); -webkit-transform: rotate(-70deg); -moz-transform: rotate(-70deg); -ms-transform: rotate(-70deg); height: 40px; transform-origin: center center;">${
+              <div class="label" style="color: ${textColor}; font-size: 10px; line-height: 1.2; margin-top: 10px; transform: rotate(-70deg); -webkit-transform: rotate(-70deg); -moz-transform: rotate(-70deg); -ms-transform: rotate(-70deg); height: 40px; transform-origin: center center; white-space: nowrap; word-wrap: normal;">${
                 categoryLabels[r.category] || r.category
               }</div>
             </td>
