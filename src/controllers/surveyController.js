@@ -7,8 +7,15 @@ exports.submitSurvey = async (req, res) => {
   try {
     await connectToDatabase();
 
-    const { name, email, company, position, responses, averageScore } =
-      req.body;
+    const {
+      name,
+      email,
+      company,
+      position,
+      responses,
+      averageScore,
+      termAndCondition,
+    } = req.body;
 
     // Validate required fields
     if (
@@ -21,20 +28,9 @@ exports.submitSurvey = async (req, res) => {
     ) {
       return errorResponse(res, "All fields are required", 400);
     }
-
-    // Check if user has already submitted
-    // const existingSubmission = await SurveySubmission.findOne({
-    //   email: email.toLowerCase(),
-    // });
-
-    // if (existingSubmission) {
-    //   return errorResponse(
-    //     res,
-    //     "Ezzel az e-mail címmel már kitöltötték a felmérést",
-    //     409
-    //   );
-    // }
-
+    if (!termAndCondition) {
+      return errorResponse(res, "Terms and conditions must be accepted", 400);
+    }
     // Create new submission
     const submission = new SurveySubmission({
       name: name?.trim(),
@@ -43,6 +39,7 @@ exports.submitSurvey = async (req, res) => {
       position: position?.trim(),
       responses: responses,
       averageScore: Number.parseFloat(averageScore),
+      termAndCondition: termAndCondition,
       submittedAt: new Date(),
     });
 
@@ -110,6 +107,7 @@ exports.getAllSubmissions = async (req, res) => {
         position: submission.position,
         responses: responsesObj,
         averageScore: submission.averageScore,
+        termAndCondition: submission.termAndCondition,
         submittedAt: submission.submittedAt,
       };
     });

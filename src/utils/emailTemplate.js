@@ -26,7 +26,7 @@ function generateEmailTemplate(userData, results) {
   <title>Forbes Business Club - Adaptív Vezetői Felmérés</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Didot", "Playfair Display", "Georgia", serif !important;
       background-color: ${bgColor};
       color: ${textColor};
       margin: 0;
@@ -63,56 +63,83 @@ function generateEmailTemplate(userData, results) {
       font-size: 26px;
       font-weight: bold;
       margin-top: 40px;
+      color: white;
     }
     .subtext {
       text-align: center;
       font-size: 14px;
       margin-top: 10px;
       line-height: 1.6;
+      color: #f5f5f5;
     }
     .bar-chart {
-      display: flex;
-      justify-content: space-around;
-      align-items: flex-end;
+      width: 100%;
       margin-top: 60px;
-      gap: 10px;
+      padding: 20px 0;
+    }
+    .bar-chart table {
+      width: 100%;
+      height: 300px;
+      table-layout: fixed;
     }
     .bar-container {
-      width: 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: ${textColor};
+      width: 12.5%;
+      text-align: center;
+      vertical-align: bottom;
+      padding: 0 5px;
+      border-top: 2px solid ${accentColor};
+      border-bottom: 2px solid ${accentColor};
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
     .bar {
       width: 100%;
-      background: linear-gradient(to top, #8C5829, #CC925E);
+      background-color: #CC925E !important;
+      background: #CC925E;
       border-radius: 5px;
-      transition: height 0.5s;
+      min-height: 30px;
+      margin: 0 auto 10px auto;
+      display: block;
     }
     .percentage {
-      margin-bottom: 10px;
+      display: block;
       font-weight: bold;
+      font-size: 12px;
+      color: white !important;
+      margin-bottom: 10px;
     }
     .label {
-      font-size: 12px;
-      margin-top: 10px;
+      font-size: 10px;
       text-align: center;
       line-height: 1.2;
+      color: ${textColor} !important;
+      word-wrap: break-word;
+      margin-top: 10px;
+      display: block;
+      transform: rotate(-70deg);
+      -webkit-transform: rotate(-70deg);
+      -moz-transform: rotate(-70deg);
+      -ms-transform: rotate(-70deg);
+      -o-transform: rotate(-70deg);
+      transform-origin: center center;
+      height: 40px;
+      width: 100%;
     }
     .section-title {
+      color: white;
       text-align: center;
       font-size: 20px;
       font-weight: bold;
       margin-top: 60px;
       padding-bottom: 10px;
+      width: fit;
       border-bottom: 2px solid ${accentColor};
     }
     .description-block {
       margin-top: 50px;
     }
     .desc-title {
-      color: ${textColor};
+      color: white;
       font-size: 16px;
       font-weight: bold;
       margin-bottom: 10px;
@@ -132,6 +159,16 @@ function generateEmailTemplate(userData, results) {
       color: #aaa;
       margin-top: 60px;
     }
+    
+    /* Email client specific fixes */
+    table {
+      border-collapse: collapse;
+    }
+    
+    /* Ensure colors work in all email clients */
+    * {
+      box-sizing: border-box;
+    }
   </style>
 </head>
 <body>
@@ -149,17 +186,28 @@ function generateEmailTemplate(userData, results) {
     </div>
 
     <div class="bar-chart">
-      ${results
-        .map(
-          (r) => `
-        <div class="bar-container">
-          <div class="percentage">${r.value.toFixed(1)}%</div>
-          <div class="bar" style="height: ${Math.round(r.value * 2)}px;"></div>
-          <div class="label">${categoryLabels[r.category] || r.category}</div>
-        </div>
-      `
-        )
-        .join("")}
+      <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; height: 300px;">
+        <tr style="vertical-align: bottom;">
+          ${results
+            .map(
+              (r) => `
+            <td class="bar-container" style="vertical-align: bottom; text-align: center; padding: 0 5px; border-top: 2px solid ${accentColor}; border-bottom: 2px solid ${accentColor};">
+              <div class="percentage" style="color: white; font-weight: bold; margin-bottom: 10px;">${r.value.toFixed(
+                1
+              )}%</div>
+              <div class="bar" style="height: ${Math.max(
+                30,
+                Math.round(r.value * 3)
+              )}px; background-color: #CC925E; border-radius: 5px; margin: 0 auto 10px auto;"></div>
+              <div class="label" style="color: ${textColor}; font-size: 10px; line-height: 1.2; margin-top: 10px; transform: rotate(-70deg); -webkit-transform: rotate(-70deg); -moz-transform: rotate(-70deg); -ms-transform: rotate(-70deg); height: 40px; transform-origin: center center;">${
+                categoryLabels[r.category] || r.category
+              }</div>
+            </td>
+          `
+            )
+            .join("")}
+        </tr>
+      </table>
     </div>
 
     <div class="section-title">A dimenziók leírása</div>
@@ -209,7 +257,7 @@ function generateEmailTemplate(userData, results) {
     <div class="description-block">
       <div class="desc-title">Önismeret</div>
       <div class="desc-text">
-        A belső kompasz kalibrálása - Ez a vezetői minőség azt méri, mennyire ismeri Ön a saját erősségeit, gyengeségeit, értékeit és motivációit. Értékeli, hogy mennyire tudatosan kezeli a saját érzelmi reakcióit és mennyire képes objektíven értékelni a saját teljesítményét. Megmutatja, hogy mennyire nyitott a visszajelzésekre és mennyire hajlandó folyamatosan fejlődni. Az önismeret minden más vezetői képesség alapja, mivel csak az tudja másokat vezetni, aki önmagát is képes irányítani.
+        A belső kompász kalibrálása - Ez a vezetői minőség azt méri, mennyire ismeri Ön a saját erősségeit, gyengeségeit, értékeit és motivációit. Értékeli, hogy mennyire tudatosan kezeli a saját érzelmi reakcióit és mennyire képes objektíven értékelni a saját teljesítményét. Megmutatja, hogy mennyire nyitott a visszajelzésekre és mennyire hajlandó folyamatosan fejlődni. Az önismeret minden más vezetői képesség alapja, mivel csak az tudja másokat vezetni, aki önmagát is képes irányítani.
       </div>
     </div>
 

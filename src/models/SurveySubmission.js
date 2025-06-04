@@ -31,6 +31,16 @@ const surveySubmissionSchema = new mongoose.Schema(
       trim: true,
       maxlength: [100, "Position cannot exceed 100 characters"],
     },
+    termAndCondition: {
+      type: Boolean,
+      required: [true, "Terms and conditions acceptance is required"],
+      validate: {
+        validator: function (value) {
+          return value === true;
+        },
+        message: "Terms and conditions must be accepted",
+      },
+    },
     responses: {
       type: Map,
       of: String,
