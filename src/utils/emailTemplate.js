@@ -134,7 +134,7 @@ function generateEmailTemplate(userData, results) {
       font-weight: bold;
       margin-top: 60px;
       padding-bottom: 10px;
-      width: fit;
+      width: 300px;
       border-bottom: 2px solid ${accentColor};
     }
     .description-block {
