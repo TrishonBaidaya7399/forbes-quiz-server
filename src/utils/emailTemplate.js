@@ -53,7 +53,7 @@ function generateEmailTemplate(userData, results) {
       color: white;
     }
     .divider {
-      width: 80px;
+      width: 250px;
       height: 2px;
       background-color: ${accentColor};
       margin: 20px auto;
@@ -134,8 +134,6 @@ function generateEmailTemplate(userData, results) {
       font-weight: bold;
       margin-top: 60px;
       padding-bottom: 10px;
-      width: fit;
-      border-bottom: 2px solid ${accentColor};
     }
     .description-block {
       margin-top: 50px;
@@ -177,7 +175,8 @@ function generateEmailTemplate(userData, results) {
   <div class="container">
     <div class="header">
       <div class="logo">Forbes</div>
-      <div class="business">BUSINESS CLUB</div>
+      <div class="business">BUSINESS</div>
+      <div class="business">CLUB</div>
       <div class="divider"></div>
     </div>
 
@@ -213,6 +212,7 @@ function generateEmailTemplate(userData, results) {
     </div>
 
     <div class="section-title">A dimenziók leírása</div>
+     <div class="divider"></div>
 
     <div class="description-block">
       <div class="desc-title">Inspiráló vízionárius</div>
