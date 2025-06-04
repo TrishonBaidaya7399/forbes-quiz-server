@@ -3,6 +3,7 @@ function generateEmailTemplate(userData, results) {
   const containerBg = "#111111";
   const textColor = "#D4D4D4";
   const accentColor = "#D39865";
+  const grayColor = "#F5F5F5";
 
   const categoryLabels = {
     inspiráló_vízionárius: "Inspiráló vízionárius",
@@ -58,6 +59,12 @@ function generateEmailTemplate(userData, results) {
       background-color: ${accentColor};
       margin: 20px auto;
     }
+    .divider-gray {
+      width: 350px;
+      height: 2px;
+      background-color: ${grayColor};
+      margin: 20px auto;
+    }
     .greeting {
       text-align: center;
       font-size: 26px;
@@ -86,11 +93,7 @@ function generateEmailTemplate(userData, results) {
       width: 12.5%;
       text-align: center;
       vertical-align: bottom;
-      padding: 0 5px;
-      border-top: 2px solid ${accentColor};
-      border-bottom: 2px solid ${accentColor};
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding: 0 30px;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -185,14 +188,14 @@ function generateEmailTemplate(userData, results) {
       Köszönjük, hogy időt szántál az adaptív vezetői önértékelés kitöltésére.<br>
       Az alábbi eredményt kaptad, amely bemutatja, hogyan teljesítesz a különböző vezetői dimenziókban:
     </div>
-
+<div class="divider-gray"></div>
     <div class="bar-chart">
       <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; height: 300px;">
         <tr style="vertical-align: bottom;">
           ${results
             .map(
               (r) => `
-            <td class="bar-container" style="vertical-align: bottom; text-align: center; padding: 0 5px; border-top: 2px solid ${accentColor}; border-bottom: 2px solid ${accentColor};">
+            <td class="bar-container" style="vertical-align: bottom; text-align: center; padding: 0 30px;">
               <div class="percentage" style="color: white; font-weight: bold; margin-bottom: 10px;">${r.value.toFixed(
                 0
               )}%</div>
@@ -210,7 +213,7 @@ function generateEmailTemplate(userData, results) {
         </tr>
       </table>
     </div>
-
+<div class="divider-gray"></div>
     <div class="section-title">A dimenziók leírása</div>
      <div class="divider"></div>
 
