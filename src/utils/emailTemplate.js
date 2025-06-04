@@ -86,7 +86,7 @@ function generateEmailTemplate(userData, results) {
     }
     .bar-chart table {
       width: 100%;
-      height: 420px;
+      height: 520px;
       table-layout: fixed;
     }
     .bar-container {
@@ -202,7 +202,7 @@ function generateEmailTemplate(userData, results) {
                 30,
                 Math.round(r.value * 3)
               )}px; background-color: #CC925E; border-radius: 2px; margin: 0 auto 10px auto;"></div>
-              <div class="label" style="color: ${textColor}; font-size: 10px; line-height: 1.2; margin-top: 10px; transform: rotate(-70deg); -webkit-transform: rotate(-70deg); -moz-transform: rotate(-70deg); -ms-transform: rotate(-70deg); height: 40px; transform-origin: center center; white-space: nowrap; word-wrap: normal;">${
+              <div class="label" style="color: ${textColor}; font-size: 10px; line-height: 1.2; margin-top: 10px; transform: rotate(-70deg); -webkit-transform: rotate(-70deg); -moz-transform: rotate(-70deg); -ms-transform: rotate(-70deg); height: 40px; transform-origin: center center;">${
                 categoryLabels[r.category] || r.category
               }</div>
             </td>
